@@ -1,0 +1,4 @@
+= simple_form_for @pizza_type do |f|
+  = f.input :name, input_html: { maxlength: 50 }
+  = f.input :price, input_html: { min: '1.00', max: '100.00', value: '1.00' }
+  = f.button :submit, class: 'btn-outline-primary mt-2'

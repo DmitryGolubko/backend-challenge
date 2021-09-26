@@ -1,0 +1,27 @@
+
+
+.container
+  .row.justify-content-center
+    .col-md-6.col-sm-12
+      %h1.text-center.mt-3
+        Pizza Types
+      %table.table
+        %thead
+          %tr
+            %th
+              Name
+            %th
+              Price
+            %th
+              Actions
+        %tbody
+          - @pizza_types.each do |pizza_type|
+            %tr
+              %td
+                = pizza_type.name
+              %td
+                = number_to_currency(pizza_type.price, presicion: 2)
+              %td
+                = link_to 'Edit', edit_pizza_type_url(pizza_type.id), class: 'btn btn-outline-primary'
+                = link_to 'Delete', pizza_type_url(pizza_type.id), method: :delete,
+                  data: { confirm: "Are you sure?" }, class: 'btn btn-outline-danger'
