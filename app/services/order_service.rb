@@ -21,6 +21,6 @@ class OrderService
   end
 
   def _discount
-    Order::DISCOUNTS[Order::DISCOUNT_CONDITIONS.key(Order::DISCOUNT_CONDITIONS.values.find_all { |v| v <= @order.cost.to_i }.last)]
+    Order::DISCOUNTS[Order::DISCOUNT_CONDITIONS.key(Order::DISCOUNT_CONDITIONS.values.find_all { |v| v <= @order.cost.to_f }.last)]
   end
 end

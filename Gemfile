@@ -34,6 +34,7 @@ gem 'cocoon'
 gem 'bootstrap'
 
 gem 'devise'
+gem 'pundit'
 
 
 group :development, :test do

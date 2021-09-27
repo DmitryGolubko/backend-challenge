@@ -1,6 +1,7 @@
 class PizzaTypesController < ApplicationController
   before_action :authenticate_user!
   before_action :load_pizza, only: %i[edit update destroy]
+  before_action :pundit_authorize
 
   def index
     @pizza_types = PizzaType.all
@@ -44,5 +45,9 @@ class PizzaTypesController < ApplicationController
 
   def load_pizza
     @pizza_type = PizzaType.find(params[:id])
+  end
+
+  def pundit_authorize
+    authorize PizzaType
   end
 end

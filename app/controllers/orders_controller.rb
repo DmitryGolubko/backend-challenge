@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: @orders, include: [order_items: { only: :quantity, include: { pizza_type: { only: [:id, :name] } } }]
+        render json: @orders, include: [order_items: { only: :quantity, include: { pizza_type: { only: %i[id name] } } }]
       end
     end
   end
@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       format.json do
-        render json: @order, include: [order_items: { only: :quantity, include: { pizza_type: { only: [:id, :name] } } }]
+        render json: @order, include: [order_items: { only: :quantity, include: { pizza_type: { only: %i[id name] } } }]
       end
     end
   end
