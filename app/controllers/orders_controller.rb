@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
+
   def index
     @orders = Order.all.includes(order_items: [:pizza_type])
 

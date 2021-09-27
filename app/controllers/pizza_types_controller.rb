@@ -1,4 +1,5 @@
 class PizzaTypesController < ApplicationController
+  before_action :authenticate_user!
   before_action :load_pizza, only: %i[edit update destroy]
 
   def index
