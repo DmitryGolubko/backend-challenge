@@ -13,6 +13,6 @@ class OrderItem < ApplicationRecord
   belongs_to :pizza_type
   belongs_to :order
 
-  validates :quantity, numericality: { greater_than_or_equal_to: 0 }
+  validates :quantity, numericality: { greater_than: 0 }
   validates :pizza_type_id, uniqueness: { scope: :order_id }
 end

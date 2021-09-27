@@ -1,0 +1,4 @@
+.order_item.nested-fields
+  = f.input :pizza_type_id, collection: @pizza_types
+  = f.input :quantity, input_html: { min: '1', max: '100', value: '1' }
+  = link_to_remove_association "Remove Pizza", f, class: 'btn btn-danger mt-3'

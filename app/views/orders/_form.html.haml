@@ -1,0 +1,13 @@
+= simple_form_for @order, html: { class: "js--calculate-total"} do |f|
+  = f.simple_fields_for :order_items do |order_item|
+    = render 'order_item_fields', f: order_item
+  .links
+    = link_to_add_association 'Add Pizza', f, :order_items, class: 'btn btn-primary mt-3'
+
+  %p.js-cost
+    Cost: 0
+  %p.js-discount
+    Discount: 0
+  %p.js-total
+    Total: 0
+  = f.submit 'Save order', class: 'btn mt-3 btn-outline-primary'

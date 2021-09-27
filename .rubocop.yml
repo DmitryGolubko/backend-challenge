@@ -15,7 +15,7 @@ AllCops:
     - 'config.ru'
 
 Metrics/LineLength:
-  Max: 120
+  Max: 140
 
 Metrics/BlockLength:
   Exclude:

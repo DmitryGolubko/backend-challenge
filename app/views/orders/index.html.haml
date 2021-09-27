@@ -1,0 +1,36 @@
+.container
+  .row.justify-content-center
+    .col-md-6.col-sm-12
+      %h1.text-center.mt-3
+        Orders List
+      %table.table
+        %thead
+          %tr
+            %th
+              Pizzas
+            %th
+              Quantity
+            %th
+              Cost
+            %th
+              Discount
+            %th
+              Total
+        %tbody
+          - @orders.each do |order|
+            - order.order_items.each do |order_item|
+              %tr
+                %td
+                  = order_item.pizza_type.name
+                %td
+                  = order_item.quantity
+            %tr.border-bold
+              %td
+              %td
+              %td
+                = number_to_currency(order.cost, presicion: 2)
+              %td
+                = number_to_currency(order.discount, presicion: 2)
+              %td
+                = number_to_currency(order.total_cost, presicion: 2)
+      = link_to 'New Order', new_order_url, class: 'btn btn-outline-primary'
